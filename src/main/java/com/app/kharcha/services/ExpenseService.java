@@ -1,5 +1,7 @@
 package com.app.kharcha.services;
 
+
+import java.sql.Date;
 import java.util.List;
 
 import org.springframework.data.domain.Page;
@@ -17,4 +19,10 @@ public interface ExpenseService {
 	
 	// pageable
 	public Page<Expenses> getAllExpensesByPageble(Pageable page);
-}
+	
+	public List<Expenses> filterExpenseByCategory(String category, Pageable page);
+	
+	public List<Expenses> filterExpensesByName(String name, Pageable page);
+	
+	public List<Expenses> filterExpenseByDate(Date startDate, Date endDate, Pageable page);
+} 

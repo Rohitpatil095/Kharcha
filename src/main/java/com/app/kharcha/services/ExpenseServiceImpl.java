@@ -1,5 +1,6 @@
 package com.app.kharcha.services;
 
+import java.sql.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -82,6 +83,30 @@ public class ExpenseServiceImpl implements ExpenseService {
 	@Override
 	public Page<Expenses> getAllExpensesByPageble(Pageable page) {
 		return expenseRepo.findAll(page);
+	}
+
+	@Override
+	public List<Expenses> filterExpenseByCategory(String category, Pageable page) {
+		return expenseRepo.findByCategory(category, page);
+	}
+
+	@Override
+	public List<Expenses> filterExpensesByName(String name, Pageable page) {
+		return expenseRepo.findByName(name, page);
+	}
+
+	@Override
+	public List<Expenses> filterExpenseByDate(Date startDate, Date endDate, Pageable page) {
+		
+		if(startDate==null)
+		{
+			startDate=new Date(0);
+		}
+		if(endDate==null)
+		{
+			endDate=new Date(System.currentTimeMillis());
+		}
+		return expenseRepo.findByDateBetween(startDate, endDate, page);
 	}
 
 }

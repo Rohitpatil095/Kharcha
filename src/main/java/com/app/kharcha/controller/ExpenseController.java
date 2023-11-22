@@ -1,5 +1,6 @@
 package com.app.kharcha.controller;
 
+import java.sql.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -74,4 +75,22 @@ public class ExpenseController {
 	{
 		return expenseService.updateExpense(exp);
 	}
-}
+	
+	@GetMapping("/expenses/category")
+	public List<Expenses> getExpensesByCategory(@RequestParam String category,Pageable page)
+	{
+		return expenseService.filterExpenseByCategory(category, page);
+	}
+	
+	@GetMapping("/expenses/name")
+	public List<Expenses> getExpensesByName(@RequestParam String name, Pageable page)
+	{
+		return expenseService.filterExpensesByName(name, page);
+	}
+	
+	@GetMapping("/expenses/date")
+	public List<Expenses> getExpensesBetweenDates(@RequestParam(required = false) Date startDate, @RequestParam(required = false) Date endDate, Pageable page)
+	{
+		return expenseService.filterExpenseByDate(startDate, endDate, page);
+	}
+}  
