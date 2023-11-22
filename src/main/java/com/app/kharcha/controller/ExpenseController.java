@@ -3,6 +3,8 @@ package com.app.kharcha.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,6 +29,13 @@ public class ExpenseController {
 	public List<Expenses> listAllExpenses()
 	{
 		return expenseService.getAllExpenses(); 
+	}
+	
+	// ---- adding paginatio feature ---
+	@GetMapping("/expenses/pageble/all")
+	public Page<Expenses> listAllExpensesInPage(Pageable page)
+	{
+		return expenseService.getAllExpensesByPageble(page);
 	}
 	
 	// pathvariable to get user id 

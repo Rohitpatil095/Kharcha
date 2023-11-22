@@ -40,12 +40,12 @@ public class Expenses {
 	private String category;
 	private Date date;
 	
-	@Column(name="create_date", updatable = false, nullable = false)
-	@CurrentTimestamp
-	private Timestamp createdDate;
-	
-	@Column(name="update_date")
-	@UpdateTimestamp
-	private Timestamp updatedDate;
+//	@Column(name="create_date", updatable = false, nullable = false)
+//	@CurrentTimestamp
+//	private Timestamp createdDate;
+//	
+//	@Column(name="update_date")
+//	@UpdateTimestamp
+//	private Timestamp updatedDate;
 	
 }
