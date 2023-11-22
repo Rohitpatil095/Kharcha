@@ -20,6 +20,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.app.kharcha.entity.Expenses;
 import com.app.kharcha.services.ExpenseService;
 
+import jakarta.validation.Valid;
+
 @RestController
 public class ExpenseController {
 
@@ -64,7 +66,7 @@ public class ExpenseController {
 	
 	@ResponseStatus(value = HttpStatus.CREATED)
 	@PostMapping(value="/expenses", consumes = {"application/json"})
-	public Expenses saveUserExpense(@RequestBody Expenses exp)
+	public Expenses saveUserExpense(@Valid @RequestBody Expenses exp)
 	{
 		return expenseService.saveUserExpense(exp);
 	}
