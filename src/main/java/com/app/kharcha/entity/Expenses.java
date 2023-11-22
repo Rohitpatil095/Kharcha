@@ -12,6 +12,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -29,14 +32,18 @@ public class Expenses {
 	private int id;
 	
 	@Column(name = "expense_name")
+	@NotBlank(message = "Expense Name Should not be null or empty")
+	@Size(min = 2, message = "Expense name should be atleast 2 letters long")
 	private String name;
 	
 	@Column(name="expense_description")
 	private String description;
 	
 	@Column(name="expense_amount")
+	@NotNull
 	private BigDecimal amount;
 	
+	@NotBlank(message = "Provide category for expense")
 	private String category;
 	private Date date;
 	
