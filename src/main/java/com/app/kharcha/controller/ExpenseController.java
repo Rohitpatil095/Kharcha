@@ -28,6 +28,13 @@ public class ExpenseController {
 	@Autowired
 	ExpenseService expenseService;
 	
+	
+	@GetMapping("/")
+	public String home()
+	{
+		return "home";
+	}
+	
 	@GetMapping("/expenses/all")
 	public List<Expenses> listAllExpenses()
 	{
