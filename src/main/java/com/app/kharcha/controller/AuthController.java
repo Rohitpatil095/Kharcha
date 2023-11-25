@@ -31,4 +31,6 @@ public class AuthController {
 		return new ResponseEntity<User>(userService.createUser(user), HttpStatus.CREATED);
 	}
 	
+	
+	
 }
