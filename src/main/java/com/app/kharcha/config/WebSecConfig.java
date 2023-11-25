@@ -30,7 +30,7 @@ public class WebSecConfig{
 		.anyRequest()
 		.authenticated()
 		.and()
-		.formLogin();
+		.formLogin().disable();
 		
 		return httpSecurity.build();
 	}

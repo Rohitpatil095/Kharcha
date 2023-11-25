@@ -7,7 +7,6 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.app.kharcha.controller.AuthController;
 import com.app.kharcha.entity.User;
 import com.app.kharcha.entity.UserModel;
 import com.app.kharcha.repo.UserRepository;
@@ -25,7 +24,7 @@ public class UserServiceImpl implements UserService {
 	public User createUser(UserModel user) {
 		User newUser= new User();
 		BeanUtils.copyProperties(user,newUser);
-		newUser.setPassword(encoder.encode(user.getPassword()));
+//		newUser.setPassword(encoder.encode(user.getPassword()));
 		return userRepo.save(newUser);
 	}
 
@@ -51,6 +50,8 @@ public class UserServiceImpl implements UserService {
 		currUser.setEmail(user.getEmail() !=null ? user.getEmail() : currUser.getEmail());
 		currUser.setName(user.getName() !=null ? user.getName() : currUser.getName());
 		currUser.setPassword(user.getPassword()!=null ?  encoder.encode(user.getPassword()): currUser.getPassword());
+// reverting encoding for testing
+//		currUser.setPassword(user.getPassword()!=null ?  encoder.encode(user.getPassword()): currUser.getPassword());
 		return userRepo.save(currUser);
 	}
 
