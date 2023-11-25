@@ -40,7 +40,6 @@ public class WebSecConfig{
         auth.userDetailsService(custUserDetailServ);
     }
 	
-	
-	
+
 }
 
