@@ -1,0 +1,372 @@
+{
+	"info": {
+		"_postman_id": "b31ca2f5-6986-4c14-b746-61fb560f8430",
+		"name": "Kharcha -Apis",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31310796"
+	},
+	"item": [
+		{
+			"name": "Get",
+			"item": [
+				{
+					"name": "Get-Pagination",
+					"item": [
+						{
+							"name": "GetAllContacts",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/expenses/all",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"expenses",
+										"all"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetAllContact-sort",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/expenses/all",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"expenses",
+										"all"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Get-ColumFilter",
+					"item": [
+						{
+							"name": "GetAllContactsByName",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/expenses/name?name=\"nirma\"",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"expenses",
+										"name"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "\"nirma\""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetAllContactsByCategory",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/expenses/name?name=\"nirma\"",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"expenses",
+										"name"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "\"nirma\""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetAllContactsBtwnDates-1",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/expenses/name?name=\"nirma\"",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"expenses",
+										"name"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "\"nirma\""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetAllContactsBtwnDates-2",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/expenses/name?name=\"nirma\"",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"expenses",
+										"name"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "\"nirma\""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetAllContactsBtwnDates-3",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/expenses/name?name=\"nirma\"",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"expenses",
+										"name"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "\"nirma\""
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "GetAllContacts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/expenses/all",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"expenses",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllContacts-Pagination",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/expenses/all",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"expenses",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllContactsByIdPathVar",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllContactsByIdQueryString",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Delete",
+			"item": [
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Post",
+			"item": [
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "put",
+			"item": [
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "CreateUser-NoAge",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"rancho11\",\r\n    \"email\": \"rancho11@gmail.com\",\r\n    \"password\": \"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/newUser",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"newUser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateUser",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"name\": \"ranchoChacha\",\r\n        \"email\": \"ranchoChacha@gmail.com\",\r\n        \"age\": 32\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/updateUser/2",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"updateUser",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateUser-WithAge",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"schanchad11\",\r\n    \"email\": \"schanchad11@gmail.com\",\r\n    \"password\": \"1234\",\r\n    \"age\": 20\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/newUser",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"newUser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetUserById",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllUsers",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
