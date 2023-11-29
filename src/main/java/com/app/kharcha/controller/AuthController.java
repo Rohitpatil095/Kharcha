@@ -6,11 +6,17 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.NoOpPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.app.kharcha.entity.LoginModel;
 import com.app.kharcha.entity.User;
 import com.app.kharcha.entity.UserModel;
 import com.app.kharcha.services.UserService;
@@ -39,13 +45,13 @@ public class AuthController {
 		return new ResponseEntity<User>(userService.createUser(user), HttpStatus.CREATED);
 	}
 
-//	@PostMapping("/login")
-//	public ResponseEntity<HttpStatus> userLogin(@RequestBody LoginModel lModel)
-//	{
-//		Authentication auth= authManager.authenticate(new UsernamePasswordAuthenticationToken(lModel.getEmail(),lModel.getPass()));
-//		SecurityContextHolder.getContext().setAuthentication(auth);
-//		return new ResponseEntity<HttpStatus>(HttpStatus.OK);
-//	}
+	@PostMapping("/login")
+	public ResponseEntity<HttpStatus> userLogin(@RequestBody LoginModel lModel)
+	{
+		Authentication auth= authManager.authenticate(new UsernamePasswordAuthenticationToken(lModel.getEmail(),lModel.getPass()));
+		SecurityContextHolder.getContext().setAuthentication(auth);
+		return new ResponseEntity<HttpStatus>(HttpStatus.OK);
+	}
 
 	@Bean
 	public BCryptPasswordEncoder encoder()
@@ -53,9 +59,15 @@ public class AuthController {
 		return new BCryptPasswordEncoder();
 	}
 	
-//	@Bean
-//	public AuthenticationManager authenticationManagerBean() throws Exception
-//	{
-//		return super.authenticationManagerBean();
-//	}
+	@Bean
+	public PasswordEncoder passEncoder()
+	{
+		return NoOpPasswordEncoder.getInstance();
+	}
+	
+	@Bean
+	public AuthenticationManager authenticationManagerBean() throws Exception
+	{
+		return authenticationManagerBean();
+	}
 }

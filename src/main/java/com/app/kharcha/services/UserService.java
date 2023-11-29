@@ -12,4 +12,5 @@ public interface UserService {
 	public List<User> getAllUser();
 	public User updateUser(int id, UserModel user);
 	public User getUserByEmail(String email);
+	User getLoggedInUser();
 }

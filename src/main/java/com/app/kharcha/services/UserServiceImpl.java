@@ -5,6 +5,9 @@ import java.util.Optional;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.app.kharcha.entity.User;
@@ -68,6 +71,20 @@ public class UserServiceImpl implements UserService {
 			return existingUser;
 		}
 		return null;
+	}
+
+	@Override
+	public User getLoggedInUser() {
+		Authentication auth= SecurityContextHolder.getContext().getAuthentication();
+		String email = auth.getName();
+		
+		User u=userRepo.findUserByEmail(email);
+		if(u ==null)
+		{
+//			return new UsernameNotFoundException("user not present");
+			return null;
+		}
+		return u;
 	}
 
 }
