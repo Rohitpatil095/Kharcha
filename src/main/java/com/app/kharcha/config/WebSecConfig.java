@@ -25,7 +25,7 @@ public class WebSecConfig{
 	{
 		httpSecurity.csrf().disable()
 		.authorizeHttpRequests()
-		.requestMatchers(contextPath+"/newUser")
+		.requestMatchers(contextPath+"/newUser", contextPath+"/login")
 		.permitAll()
 		.anyRequest()
 		.authenticated()
