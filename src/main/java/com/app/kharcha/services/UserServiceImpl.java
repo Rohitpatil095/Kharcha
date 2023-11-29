@@ -32,7 +32,8 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public User readUser(int id) {
+	public User readUser() {
+		int id= getLoggedInUser().getId();
 		Optional<User> currUser= userRepo.findById(id);
 		
 		if(currUser.isPresent())
@@ -43,8 +44,8 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public User updateUser(int id, UserModel user) {
-		User currUser= readUser(id);
+	public User updateUser(UserModel user) {
+		User currUser= readUser();
 		if(currUser==null)
 		{
 			return null;

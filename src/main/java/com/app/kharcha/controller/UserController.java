@@ -27,10 +27,10 @@ public class UserController {
 //		return userService.createUser(user);
 //	}
 	
-	@GetMapping("/getUser/{id}")
-	public User getUserById(@PathVariable int id)
+	@GetMapping("/profile")
+	public User getUserById()
 	{
-		return userService.readUser(id);
+		return userService.readUser();
 	}
 	
 	@GetMapping("/getUsers")
@@ -40,9 +40,9 @@ public class UserController {
 	}
 	
 	
-	@PutMapping("/updateUser/{id}")
-	public User updateUser(@Valid @RequestBody UserModel user, @PathVariable int id)
+	@PutMapping("/profile")
+	public User updateUser(@Valid @RequestBody UserModel user)
 	{
-		return userService.updateUser(id, user);
+		return userService.updateUser(user);
 	}
 }
